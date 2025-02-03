@@ -5,7 +5,7 @@ project_structure = {
     "Resources": [],
     "Tests": [],
     "Data": [],
-    "Outputs": [],
+    "Output": [],
 }
 
 
