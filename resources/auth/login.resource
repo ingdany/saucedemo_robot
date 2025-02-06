@@ -11,7 +11,8 @@ ${LOGIN_ERROR_MSG}    css:h3[data-test='error']
 
 *** Keywords ***
 Open Login Page
-    Open Browser    ${LOGIN_URL}    browser=chrome
+    [Arguments]    ${BROWSER}
+    Open Browser    ${LOGIN_URL}    ${BROWSER}
     Maximize Browser Window
 
 Enter Username

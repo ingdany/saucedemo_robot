@@ -5,7 +5,7 @@ This is a test suite for the Saucedemo login page.
 Resource    ../resources/auth/login.resource
 
 *** Variables ***
-${BROWSER}    chrome
+# ${BROWSER}    chrome
 ${TAGGING}    smoke
 ${USERNAME}    standard_user
 ${PASSWORD}    secret_sauce
@@ -17,14 +17,14 @@ ${MESSAGE_ERROR}    Epic sadface: Username and password do not match any user in
 Valid Login Test
     [Documentation]   This test case validates a successful login
     [Tags]    ${TAGGING}
-    [Setup]    Open Login Page
+    [Setup]    Open Login Page   ${BROWSER} 
     Login With Credentials    ${USERNAME}    ${PASSWORD}
     [Teardown]    Close Browser
 
 Invalid Login Test
     [Documentation]   This test case validates an unsuccessful login
     [Tags]    ${TAGGING}
-    [Setup]    Open Login Page
+    [Setup]    Open Login Page   ${BROWSER}
     Login With Credentials    ${WRONG_USERNAME}    ${WRONG_PASSWORD}
     Element Text Should Be    ${LOGIN_ERROR_MSG}    ${MESSAGE_ERROR}
     [Teardown]    Close Browser
